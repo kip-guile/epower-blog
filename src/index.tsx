@@ -1,27 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import thunk from 'redux-thunk'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
+import store from './reducers/store'
 import reportWebVitals from './reportWebVitals'
-import { rootReducer } from './reducers'
 
-const initialState = {}
 
-const middleware = [thunk]
 
-export const store = createStore(
-  rootReducer,
-  initialState,
-  compose(
-    applyMiddleware(...middleware),
-    process.env.NODE_ENV === 'test' ? (n: any) => n : composeWithDevTools()
-  )
-)
 
 ReactDOM.render(
   <React.StrictMode>

@@ -3,7 +3,7 @@ import { render, RenderOptions } from '@testing-library/react'
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import {store} from '../index'
+import store from '../reducers/store'
 
 const AllTheProviders: ComponentType<any> = ({ children }) => {
   return (

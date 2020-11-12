@@ -7,7 +7,7 @@ describe('<Board />', () => {
     const container = render(<Main />)
     // ???
     const { findByText, findByTestId } = container
-    expect(await findByText('Epower Blog')).toBeVisible()
+    expect(await findByText('Copyright 2020')).toBeVisible()
     // expect(await findByText('Board')).toBeVisible()
     // expect(await findByTestId('trello_view')).toBeVisible()
     // expect(await findByText('Activity')).toBeVisible()
