@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Image, Text } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/core'
 import { postsReducerObject } from '../reducers/postsReducer'
 import Card from './Card'
 

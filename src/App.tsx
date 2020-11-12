@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 //Pages
 import Main from './pages/main'
 import SinglePost from './pages/singlePost'
+import PageNotFound from './pages/pageNotFound'
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <CSSReset />
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route path="/:post" component={SinglePost} />
+        <Route exact path="/posts/:post" component={SinglePost} />
+        <Route component={PageNotFound} />
       </Switch>
     </ThemeProvider>
   )
