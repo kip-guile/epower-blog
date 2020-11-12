@@ -60,13 +60,30 @@ const SinglePost = ({ posts, match }: SinglePostProps) => {
   return (
     <>
       {post ? (
-        <Box>
-          <Box>
-            <Text fontSize="sm">{ReactHtmlParser(post.title.rendered)}</Text>
+        <Box backgroundColor="#282c35" color='#ffff'>
+          <Box
+          display="flex"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor="#5678"
+        color="#ffff"
+        mb={10}
+        textAlign="center"
+        w="100%"
+        h="20vh"
+          >
+            <Text fontSize="5xl">{ReactHtmlParser(post.title.rendered)}</Text>
           </Box>
-          <Box>
+          <Box
+          p={10}
+          display="flex"
+          flexDirection='column'
+        justifyContent="center"
+        alignItems="center"
+          >
+            <Box mb={10}>
             <Image
-              size="250px"
+              size="500px"
               objectFit="cover"
               src={post.featured_image}
               alt={post.slug}
@@ -74,6 +91,20 @@ const SinglePost = ({ posts, match }: SinglePostProps) => {
           </Box>
           <Box>
             <Text fontSize="sm">{ReactHtmlParser(post.content.rendered)}</Text>
+          </Box>
+          </Box>
+          <Box
+          display="flex"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor="#5678"
+        color="#ffff"
+        mt={10}
+        textAlign="center"
+        w="100%"
+        h="20vh"
+          >
+            <Text fontSize="xl">Copyright 2020</Text>
           </Box>
         </Box>
       ) : (
