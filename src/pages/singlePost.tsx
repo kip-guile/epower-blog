@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'
 import { connect } from 'react-redux'
+import { fetchPosts } from '../actions/actions'
 import ReactHtmlParser from 'react-html-parser'
-import { Box, Text, Image } from '@chakra-ui/core'
+import { Box, Text, Image, Spinner } from '@chakra-ui/core'
 import { StoreState } from '../reducers'
 import { postsReducerObject } from '../reducers/postsReducer'
 
 interface SinglePostProps {
   posts: postsReducerObject[]
   match: any
+  fetchPosts(): any
 }
 
 const initialState: postsReducerObject = {
@@ -42,7 +44,7 @@ const initialState: postsReducerObject = {
     'https://blog.epower.ng/wp-content/uploads/2020/11/9M59bZ9irg.jpg'
 }
 
-const SinglePost = ({ posts, match }: SinglePostProps) => {
+const SinglePost = ({ fetchPosts, posts, match }: SinglePostProps) => {
   const postName = match.params.post
 
   const [post, setPost] = useState(initialState)
@@ -51,67 +53,72 @@ const SinglePost = ({ posts, match }: SinglePostProps) => {
     setPost(postArr[0])
   }
   useEffect(() => {
+    fetchPosts()
     getPost()
-    // window.localStorage.setItem('post', JSON.stringify(post))
-  }, [])
-  // const localpost = localStorage.getItem('post')
-  // const persistedPost = localpost ? JSON.parse(localpost) : null
-  // let photoToRender = post ? post : persistedPost
+  }, [posts])
   return (
     <>
       {post ? (
-        <Box backgroundColor="#282c35" color='#ffff'>
+        <Box backgroundColor="#282c35" color="#ffff">
           <Box
-          display="flex"
-          flexDirection='column'
-        justifyContent="center"
-        alignItems="center"
-        backgroundColor="#5678"
-        color="#ffff"
-        mb={10}
-        textAlign="center"
-        w="100%"
-        h="20vh"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            backgroundColor="#5678"
+            color="#ffff"
+            mb={10}
+            textAlign="center"
+            w="100%"
+            h="20vh"
           >
-            <Text mb={5} fontSize="5xl">{ReactHtmlParser(post.title.rendered)}</Text>
-      <Text fontSize="md">Published on {dayjs(post.date).format('YYYY MMMM DD')}</Text>
+            <Text mb={5} fontSize="5xl">
+              {ReactHtmlParser(post.title.rendered)}
+            </Text>
+            <Text fontSize="md">
+              Published on {dayjs(post.date).format('YYYY MMMM DD')}
+            </Text>
           </Box>
           <Box
-          pl={{md: '10rem'}}
-          pr={{md: '10rem'}}
-          display="flex"
-          flexDirection='column'
-        justifyContent="center"
-        alignItems="center"
+            pl={{ md: '10rem' }}
+            pr={{ md: '10rem' }}
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
           >
             <Box mb={10}>
-            <Image
-              size="500px"
-              objectFit="cover"
-              src={post.featured_image}
-              alt={post.slug}
-            />
-          </Box>
-          <Box>
-            <Text fontSize="sm">{ReactHtmlParser(post.content.rendered)}</Text>
-          </Box>
+              <Image
+                size="500px"
+                objectFit="cover"
+                src={post.featured_image}
+                alt={post.slug}
+              />
+            </Box>
+            <Box>
+              <Text fontSize="sm">
+                {ReactHtmlParser(post.content.rendered)}
+              </Text>
+            </Box>
           </Box>
           <Box
-          display="flex"
-        justifyContent="center"
-        alignItems="center"
-        backgroundColor="#5678"
-        color="#ffff"
-        mt={10}
-        textAlign="center"
-        w="100%"
-        h="20vh"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            backgroundColor="#5678"
+            color="#ffff"
+            mt={10}
+            textAlign="center"
+            w="100%"
+            h="20vh"
           >
             <Text fontSize="xl">Copyright 2020</Text>
           </Box>
         </Box>
       ) : (
-        <Box>Loading...</Box>
+        <Box display='flex' alignItems='center' justifyContent='center' minWidth='100%' minHeight='70vh'>
+            <Spinner color='#ffff' size="xl" />
+        </Box>
       )}
     </>
   )
@@ -121,4 +128,4 @@ const mapStateToProps = ({ posts }: StoreState) => {
   return { posts }
 }
 
-export default connect(mapStateToProps)(SinglePost)
+export default connect(mapStateToProps, { fetchPosts })(SinglePost)

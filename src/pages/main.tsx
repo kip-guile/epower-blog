@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { StoreState } from '../reducers'
 import { fetchPosts } from '../actions/actions'
-import { Box, Text } from '@chakra-ui/core'
+import { Box, Text, Spinner } from '@chakra-ui/core'
 import { postsReducerObject } from '../reducers/postsReducer'
 import Posts from '../components/Posts'
 import Pagination from '../components/Pagination'
@@ -30,7 +30,7 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
     <Box
       display={{ md: 'flex' }}
       flexDirection={{ md: 'column' }}
-      maxWidth={{ md: '100vw' }}
+      minWidth={{ md: '100vw' }}
       backgroundColor="#282c35"
       color="#fff"
     >
@@ -47,12 +47,20 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
       >
         <Text fontSize="6xl">Epower Blog</Text>
       </Box>
-      <Posts posts={currentPosts} />
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={posts.length}
-        paginate={paginate}
-      />
+      {currentPosts.length ? (
+        <>
+          <Posts posts={currentPosts} />
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={paginate}
+          />
+        </>
+      ) : (
+        <Box display='flex' alignItems='center' justifyContent='center' minWidth='100%' minHeight='70vh'>
+            <Spinner size="xl" />
+        </Box>
+      )}
       <Box
         display="flex"
         justifyContent="center"
