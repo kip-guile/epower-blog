@@ -17,7 +17,7 @@ export const fetchPosts = () => {
       const response = await axios.get<postsReducerObject[]>(
         `https://blog.epower.ng/wp-json/wp/v2/posts`
       )
-    //   console.log(response)
+      //   console.log(response)
       //   dispatch response to reducers
       dispatch<fetchPostsAction>({
         type: ActionTypes.fetchPosts,
