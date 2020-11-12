@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Dispatch } from 'redux'
 import { ActionTypes } from './types'
-import {postsReducerObject} from '../reducers/postsReducer'
+import { postsReducerObject } from '../reducers/postsReducer'
 
 export interface fetchPostsAction {
   type: ActionTypes.fetchPosts
@@ -17,18 +17,18 @@ export const fetchPhotoObject = (date: string) => {
       const response = await axios.get<postsReducerObject[]>(
         `https://blog.epower.ng/wp-json/wp/v2/posts`
       )
-        console.log(response)
-    //   dispatch response to reducers
+      console.log(response)
+      //   dispatch response to reducers
       dispatch<fetchPostsAction>({
         type: ActionTypes.fetchPosts,
-        payload: response.data,
+        payload: response.data
       })
     } catch (err) {
       // catch and handle errors
-    //   dispatch<failedRequest>({
-    //     type: ActionTypes.failedRequest,
-    //   })
-    console.log(err)
+      //   dispatch<failedRequest>({
+      //     type: ActionTypes.failedRequest,
+      //   })
+      console.log(err)
     }
   }
 }

@@ -1,3 +1,3 @@
 export enum ActionTypes {
-    fetchPosts
+  fetchPosts
 }

@@ -5,7 +5,6 @@ export interface StoreState {
   posts: postsReducerObject[]
 }
 
-
 export const rootReducer = combineReducers<StoreState>({
-    posts: postsReducer
+  posts: postsReducer
 })
