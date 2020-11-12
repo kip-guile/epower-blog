@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { StoreState } from '../reducers'
+import {fetchPosts} from '../actions/actions'
+import { Box } from "@chakra-ui/core";
+import {postsReducerObject} from '../reducers/postsReducer'
 
-function Main() {
-  return <div>Start</div>
+interface MainComponentProps {
+    fetchPosts(): any
+    posts: postsReducerObject[]
 }
 
-export default Main
+function Main({fetchPosts, posts}: MainComponentProps) {
+    useEffect(() => {
+        fetchPosts()
+    }, [])
+  return (
+    <Box>
+
+    </Box>
+  )
+}
+
+const mapStateToProps = ({ posts }: StoreState) => {
+  return { posts }
+}
+
+export default connect(mapStateToProps, {fetchPosts})(Main)

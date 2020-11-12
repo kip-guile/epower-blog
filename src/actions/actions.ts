@@ -8,7 +8,7 @@ export interface fetchPostsAction {
   payload: postsReducerObject[]
 }
 
-export const fetchPhotoObject = (date: string) => {
+export const fetchPosts = () => {
   return async (dispatch: Dispatch) => {
     // dispatch<isLoadingAction>({
     //   type: ActionTypes.isLoading,
