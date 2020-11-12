@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react"
-import { connect } from "react-redux"
+import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import ReactHtmlParser from 'react-html-parser'
-import { Box, Text, Image } from "@chakra-ui/core"
+import { Box, Text, Image } from '@chakra-ui/core'
 import { StoreState } from '../reducers'
 import { postsReducerObject } from '../reducers/postsReducer'
 
@@ -41,48 +41,49 @@ const initialState: postsReducerObject = {
     'https://blog.epower.ng/wp-content/uploads/2020/11/9M59bZ9irg.jpg'
 }
 
-const SinglePost = ({posts, match}: SinglePostProps) => {
-    const postName = match.params.post
-    
-    const [post, setPost] = useState(initialState)
-    const postArr = posts.filter((post) => post.slug === postName)
-    const getPost = () => {
-        setPost(postArr[0])
-    }
-    useEffect(() => {
-        getPost()
-        // window.localStorage.setItem('post', JSON.stringify(post))
-    }, [])
-    console.log(post)
-    // const localpost = localStorage.getItem('post')
-    // const persistedPost = localpost ? JSON.parse(localpost) : null
-    // let photoToRender = post ? post : persistedPost
-    return (
-        <>
-        {post ? (
-            <Box>
-                <Box>
-                <Text fontSize="sm">{ReactHtmlParser(post.title.rendered)}</Text>
-            </Box>
-            <Box>
-                <Image
-                    size="250px"
-                    objectFit="cover"
-                    src={post.featured_image}
-                    alt={post.slug}
-                />
-            </Box>
-            <Box>
-                <Text fontSize="sm">{ReactHtmlParser(post.content.rendered)}</Text>
-            </Box>
+const SinglePost = ({ posts, match }: SinglePostProps) => {
+  const postName = match.params.post
+
+  const [post, setPost] = useState(initialState)
+  const postArr = posts.filter((post) => post.slug === postName)
+  const getPost = () => {
+    setPost(postArr[0])
+  }
+  useEffect(() => {
+    getPost()
+    // window.localStorage.setItem('post', JSON.stringify(post))
+  }, [])
+  console.log(post)
+  // const localpost = localStorage.getItem('post')
+  // const persistedPost = localpost ? JSON.parse(localpost) : null
+  // let photoToRender = post ? post : persistedPost
+  return (
+    <>
+      {post ? (
+        <Box>
+          <Box>
+            <Text fontSize="sm">{ReactHtmlParser(post.title.rendered)}</Text>
+          </Box>
+          <Box>
+            <Image
+              size="250px"
+              objectFit="cover"
+              src={post.featured_image}
+              alt={post.slug}
+            />
+          </Box>
+          <Box>
+            <Text fontSize="sm">{ReactHtmlParser(post.content.rendered)}</Text>
+          </Box>
         </Box>
-        ) : <Box>Loading...</Box>}
-        </>
-        
-    )
+      ) : (
+        <Box>Loading...</Box>
+      )}
+    </>
+  )
 }
 
-const mapStateToProps = ({posts}: StoreState) => {
+const mapStateToProps = ({ posts }: StoreState) => {
   return { posts }
 }
 

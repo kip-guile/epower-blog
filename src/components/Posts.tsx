@@ -14,6 +14,8 @@ const Posts = ({ posts }: PostProps) => {
       flexWrap={{ md: 'wrap' }}
       maxWidth={{ md: '100%' }}
       justifyContent={{ md: 'space-between' }}
+      pl={{ md: 10 }}
+      pr={{ md: 10 }}
     >
       {posts.map((post, i) => (
         <Card key={i} post={post} />
