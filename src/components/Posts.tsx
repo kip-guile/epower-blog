@@ -1,5 +1,6 @@
 import React from 'react'
 import { postsReducerObject } from '../reducers/postsReducer'
+import Card from './Card'
 
 interface PostProps {
   posts: postsReducerObject[]
@@ -8,8 +9,8 @@ interface PostProps {
 const Posts = ({ posts }: PostProps) => {
   return (
     <div>
-      {posts.map((post) => (
-        <div key={post.id}>{post.title.rendered}</div>
+      {posts.map((post, i) => (
+        <Card key={i} post={post} />
       ))}
     </div>
   )
