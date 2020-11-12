@@ -52,7 +52,7 @@ const SinglePost = ({posts, match}: SinglePostProps) => {
     useEffect(() => {
         getPost()
         // window.localStorage.setItem('post', JSON.stringify(post))
-    }, [posts])
+    }, [])
     console.log(post)
     // const localpost = localStorage.getItem('post')
     // const persistedPost = localpost ? JSON.parse(localpost) : null
