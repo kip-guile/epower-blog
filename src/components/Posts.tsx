@@ -10,7 +10,7 @@ const Posts = ({posts}: PostProps) => {
     return (
         <div>
             {posts.map(post => (
-                <div>{post.title}</div>
+                <div key={post.id}>{post.title.rendered}</div>
             ))}
         </div>
     )

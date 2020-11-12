@@ -14,12 +14,18 @@ interface MainComponentProps {
 function Main({fetchPosts, posts}: MainComponentProps) {
     const [currentPage, setCurrentPage] = useState(1)
     const [postsPerPage, setPostsPerPage] = useState(6)
+    
     useEffect(() => {
         fetchPosts()
     }, [])
+
+    const indexOfLastPost = currentPage * postsPerPage
+    const indexOfFirstPost = indexOfLastPost - postsPerPage
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+
   return (
     <Box>
-        <Posts posts={posts} />
+        <Posts posts={currentPosts} />
     </Box>
   )
 }
