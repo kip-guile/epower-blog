@@ -5,6 +5,7 @@ import {fetchPosts} from '../actions/actions'
 import { Box } from "@chakra-ui/core";
 import {postsReducerObject} from '../reducers/postsReducer'
 import Posts from '../components/Posts';
+import Pagination from '../components/Pagination';
 
 interface MainComponentProps {
     fetchPosts(): any
@@ -23,9 +24,12 @@ function Main({fetchPosts, posts}: MainComponentProps) {
     const indexOfFirstPost = indexOfLastPost - postsPerPage
     const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
 
+    const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+
   return (
     <Box>
         <Posts posts={currentPosts} />
+        <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} />
     </Box>
   )
 }
