@@ -1,4 +1,5 @@
-const initialState: postsReducerObject[] = []
+import { ActionTypes } from '../actions/types'
+import {fetchPostsAction} from '../actions/actions'
 
 // {
 //   id: 4581,
@@ -61,8 +62,10 @@ export interface postsReducerObject {
   featured_image: string
 }
 
-export const postsReducer = (state: postsReducerObject[] = initialState, action: any) => {
+export const postsReducer = (state: postsReducerObject[] = [], action: fetchPostsAction) => {
   switch (action.type) {
+    case ActionTypes.fetchPosts:
+      return action.payload
     default:
       return state
   }
