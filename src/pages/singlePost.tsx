@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import dayjs from 'dayjs';
 import { connect } from 'react-redux'
 import ReactHtmlParser from 'react-html-parser'
 import { Box, Text, Image } from '@chakra-ui/core'
@@ -53,7 +54,6 @@ const SinglePost = ({ posts, match }: SinglePostProps) => {
     getPost()
     // window.localStorage.setItem('post', JSON.stringify(post))
   }, [])
-  console.log(post)
   // const localpost = localStorage.getItem('post')
   // const persistedPost = localpost ? JSON.parse(localpost) : null
   // let photoToRender = post ? post : persistedPost
@@ -63,6 +63,7 @@ const SinglePost = ({ posts, match }: SinglePostProps) => {
         <Box backgroundColor="#282c35" color='#ffff'>
           <Box
           display="flex"
+          flexDirection='column'
         justifyContent="center"
         alignItems="center"
         backgroundColor="#5678"
@@ -72,10 +73,12 @@ const SinglePost = ({ posts, match }: SinglePostProps) => {
         w="100%"
         h="20vh"
           >
-            <Text fontSize="5xl">{ReactHtmlParser(post.title.rendered)}</Text>
+            <Text mb={5} fontSize="5xl">{ReactHtmlParser(post.title.rendered)}</Text>
+      <Text fontSize="md">Published on {dayjs(post.date).format('YYYY MMMM DD')}</Text>
           </Box>
           <Box
-          p={10}
+          pl={{md: '10rem'}}
+          pr={{md: '10rem'}}
           display="flex"
           flexDirection='column'
         justifyContent="center"
