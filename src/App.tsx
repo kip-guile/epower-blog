@@ -4,13 +4,15 @@ import { Route, Switch } from 'react-router-dom'
 
 //Pages
 import Main from './pages/main'
+import SinglePost from './pages/singlePost'
 
 function App() {
   return (
     <ThemeProvider>
       <CSSReset />
       <Switch>
-        <Route path="/" component={Main} />
+        <Route exact path="/" component={Main} />
+        <Route path="/:post" component={SinglePost} />
       </Switch>
     </ThemeProvider>
   )
