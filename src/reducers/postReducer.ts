@@ -1,36 +1,38 @@
-const initialState = {
-  id: 4581,
-  date: '',
-  date_gmt: '2020-11-06T14:50:50',
-  guid: {},
-  modified: '2020-11-06T15:00:55',
-  modified_gmt: '2020-11-06T15:00:55',
-  slug: 'characteristics-of-highly-effective-logos',
-  status: 'publish',
-  type: 'post',
-  link: 'https://blog.epower.ng/characteristics-of-highly-effective-logos',
-  title: {},
-  content: {},
-  excerpt: {},
-  author: 14,
-  featured_media: 4583,
-  comment_status: 'closed',
-  ping_status: 'closed',
-  sticky: false,
-  template: '',
-  format: 'standard',
-  meta: [],
-  categories: [1],
-  tags: [],
-  post_author: {},
-  featured_image_thumbnail:
-    'https://blog.epower.ng/wp-content/uploads/2020/11/9M59bZ9irg-150x150.jpg',
-  featured_image:
-    'https://blog.epower.ng/wp-content/uploads/2020/11/9M59bZ9irg.jpg',
-  _links: {}
-}
+const initialState: postsReducerObject[] = []
 
-export interface postReducer {
+// {
+//   id: 4581,
+//   date: '',
+//   date_gmt: '2020-11-06T14:50:50',
+//   guid: {},
+//   modified: '2020-11-06T15:00:55',
+//   modified_gmt: '2020-11-06T15:00:55',
+//   slug: 'characteristics-of-highly-effective-logos',
+//   status: 'publish',
+//   type: 'post',
+//   link: 'https://blog.epower.ng/characteristics-of-highly-effective-logos',
+//   title: {},
+//   content: {},
+//   excerpt: {},
+//   author: 14,
+//   featured_media: 4583,
+//   comment_status: 'closed',
+//   ping_status: 'closed',
+//   sticky: false,
+//   template: '',
+//   format: 'standard',
+//   meta: [],
+//   categories: [1],
+//   tags: [],
+//   post_author: {},
+//   featured_image_thumbnail:
+//     'https://blog.epower.ng/wp-content/uploads/2020/11/9M59bZ9irg-150x150.jpg',
+//   featured_image:
+//     'https://blog.epower.ng/wp-content/uploads/2020/11/9M59bZ9irg.jpg',
+//   _links: {}
+// }
+
+export interface postsReducerObject {
   id: number
   date: string
   date_gmt: string
@@ -59,7 +61,7 @@ export interface postReducer {
   featured_image: string
 }
 
-export const postReducer = (state: postReducer = initialState, action: any) => {
+export const postsReducer = (state: postsReducerObject[] = initialState, action: any) => {
   switch (action.type) {
     default:
       return state
