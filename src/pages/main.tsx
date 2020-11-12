@@ -27,7 +27,12 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
   return (
-    <Box display={{ md: 'flex' }}>
+    <Box
+      display={{ md: 'flex' }}
+      flexDirection={{ md: 'column' }}
+      maxWidth={{ md: '100vw' }}
+      p={{ md: 5 }}
+    >
       <Posts posts={currentPosts} />
       <Pagination
         postsPerPage={postsPerPage}

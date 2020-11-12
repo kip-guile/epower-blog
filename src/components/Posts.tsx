@@ -1,4 +1,5 @@
 import React from 'react'
+import { Box, Image, Text } from '@chakra-ui/core'
 import { postsReducerObject } from '../reducers/postsReducer'
 import Card from './Card'
 
@@ -8,11 +9,16 @@ interface PostProps {
 
 const Posts = ({ posts }: PostProps) => {
   return (
-    <div>
+    <Box
+      display={{ md: 'flex' }}
+      flexWrap={{ md: 'wrap' }}
+      maxWidth={{ md: '100%' }}
+      justifyContent={{ md: 'space-between' }}
+    >
       {posts.map((post, i) => (
         <Card key={i} post={post} />
       ))}
-    </div>
+    </Box>
   )
 }
 
