@@ -39,7 +39,7 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
         justifyContent="center"
         alignItems="center"
         backgroundColor="#5678"
-        color="#ffa764"
+        color="#ffff"
         mb={10}
         textAlign="center"
         w="100%"
@@ -58,7 +58,7 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
         justifyContent="center"
         alignItems="center"
         backgroundColor="#5678"
-        color="#ffa764"
+        color="#ffff"
         mt={10}
         textAlign="center"
         w="100%"
