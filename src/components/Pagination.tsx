@@ -20,9 +20,9 @@ const Pagination = ({
 
   return (
     <Box
-      display={{ md: 'flex' }}
+      display='flex'
       width={{ md: '100%' }}
-      justifyContent={{ md: 'center' }}
+      justifyContent='center'
       mt={10}
     >
       {pageNumbers.map((number, i) => (
