@@ -10,7 +10,7 @@ import { postsReducerObject } from '../reducers/postsReducer'
 interface SinglePostProps {
   posts: postsReducerObject[]
   match: any
-  fetchPosts(): any
+  // fetchPosts(): any
 }
 
 const initialState: postsReducerObject = {
@@ -44,7 +44,7 @@ const initialState: postsReducerObject = {
     'https://blog.epower.ng/wp-content/uploads/2020/11/9M59bZ9irg.jpg'
 }
 
-const SinglePost = ({ fetchPosts, posts, match }: SinglePostProps) => {
+const SinglePost = ({ posts, match }: SinglePostProps) => {
   const postName = match.params.post
 
   const [post, setPost] = useState(initialState)
@@ -53,7 +53,7 @@ const SinglePost = ({ fetchPosts, posts, match }: SinglePostProps) => {
     setPost(postArr[0])
   }
   useEffect(() => {
-    fetchPosts()
+    // fetchPosts()
     getPost()
   }, [posts])
   return (

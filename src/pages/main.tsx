@@ -8,7 +8,7 @@ import Posts from '../components/Posts'
 import Pagination from '../components/Pagination'
 
 interface MainComponentProps {
-  fetchPosts(): any
+  fetchPosts(page: number): any
   posts: postsReducerObject[]
 }
 
@@ -17,12 +17,8 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
   const [postsPerPage] = useState(6)
 
   useEffect(() => {
-    fetchPosts()
-  }, [])
-
-  const indexOfLastPost = currentPage * postsPerPage
-  const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+    fetchPosts(currentPage)
+  }, [currentPage])
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
@@ -47,13 +43,14 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
       >
         <Text fontSize="6xl">Epower Blog</Text>
       </Box>
-      {currentPosts.length ? (
+      {posts.length ? (
         <>
-          <Posts posts={currentPosts} />
+          <Posts posts={posts} />
           <Pagination
             postsPerPage={postsPerPage}
             totalPosts={posts.length}
             paginate={paginate}
+            currentPage={currentPage}
           />
         </>
       ) : (

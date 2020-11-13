@@ -8,12 +8,13 @@ export interface fetchPostsAction {
   payload: postsReducerObject[]
 }
 
-export const fetchPosts = () => {
+export const fetchPosts = (page: number) => {
   return async (dispatch: Dispatch) => {
     try {
       const response = await axios.get<postsReducerObject[]>(
-        `https://blog.epower.ng/wp-json/wp/v2/posts`
+        `https://blog.epower.ng/wp-json/wp/v2/posts?per_page=6&page=${page}`
       )
+      console.log(response.data)
       //   dispatch response to reducers
       dispatch<fetchPostsAction>({
         type: ActionTypes.fetchPosts,

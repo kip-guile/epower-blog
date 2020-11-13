@@ -1,16 +1,18 @@
 import React from 'react'
-import { Box } from '@chakra-ui/core'
+import { Box, Button } from '@chakra-ui/core'
 
 interface PaginationProps {
   postsPerPage: number
   totalPosts: number
   paginate(number: number): any
+  currentPage: number
 }
 
 const Pagination = ({
   postsPerPage,
   totalPosts,
-  paginate
+  paginate,
+  currentPage
 }: PaginationProps) => {
   const pageNumbers = []
 
@@ -20,9 +22,7 @@ const Pagination = ({
 
   return (
     <Box display="flex" width={{ md: '100%' }} justifyContent="center" mt={10}>
-      {pageNumbers.map((number, i) => (
-        <Box
-          cursor="pointer"
+        <Button
           borderRadius={{ md: 10 }}
           textAlign="center"
           w={{ md: '6rem' }}
@@ -30,12 +30,23 @@ const Pagination = ({
           color="#ffff"
           p={2}
           ml={5}
-          key={i}
-          onClick={() => paginate(number)}
+          isDisabled={currentPage === 1}
+          onClick={() => paginate(currentPage - 1)}
         >
-          {number}
-        </Box>
-      ))}
+          Previous
+        </Button>
+        <Button
+          borderRadius={{ md: 10 }}
+          textAlign="center"
+          w={{ md: '6rem' }}
+          backgroundColor="#5678"
+          color="#ffff"
+          p={2}
+          ml={5}
+          onClick={() => paginate(currentPage + 1)}
+        >
+          Next
+        </Button>
     </Box>
   )
 }
