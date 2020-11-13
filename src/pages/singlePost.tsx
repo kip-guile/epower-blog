@@ -72,9 +72,9 @@ const SinglePost = ({ fetchPosts, posts, match }: SinglePostProps) => {
             w="100%"
             h="20vh"
           >
-            <Text mb={5} fontSize={{ md: '5xl', xs: 'xl' }}>
+            <Box mb={5} fontSize={{ md: '5xl', xs: 'xl' }}>
               {ReactHtmlParser(post.title.rendered)}
-            </Text>
+            </Box>
             <Text fontSize="md">
               Published on {dayjs(post.date).format('YYYY MMMM DD')}
             </Text>
@@ -96,9 +96,7 @@ const SinglePost = ({ fetchPosts, posts, match }: SinglePostProps) => {
               />
             </Box>
             <Box>
-              <Text fontSize="sm">
-                {ReactHtmlParser(post.content.rendered)}
-              </Text>
+              <Box fontSize="sm">{ReactHtmlParser(post.content.rendered)}</Box>
             </Box>
           </Box>
           <Box

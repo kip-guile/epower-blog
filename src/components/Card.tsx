@@ -19,9 +19,9 @@ const Card = ({ post }: CardProps) => {
         alignItems={{ md: 'center' }}
         maxWidth={{ md: '30%', xs: '85%' }}
         marginBottom={{ md: 5, xs: 5 }}
-        marginTop={{ md: 5 }}
         textAlign="center"
         p={10}
+        h={{ md: '35rem' }}
         color="black"
         backgroundColor="#ffff"
         boxShadow="0 4px 8px 0 rgba(0,0,0,0.2)"
@@ -39,7 +39,7 @@ const Card = ({ post }: CardProps) => {
           <Text mb={5} fontWeight="bold" fontSize="lg">
             {post.title.rendered}
           </Text>
-          <Text fontSize="sm">{ReactHtmlParser(post.excerpt.rendered)}</Text>
+          <Box fontSize="sm">{ReactHtmlParser(post.excerpt.rendered)}</Box>
         </NavLink>
       </Box>
     </>
