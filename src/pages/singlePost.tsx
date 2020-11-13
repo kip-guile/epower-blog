@@ -72,13 +72,13 @@ const SinglePost = ({ posts, match }: SinglePostProps) => {
   return (
     <>
       {postObj ? (
-        <Box backgroundColor="#282c35" color="#ffff">
+        <Box backgroundColor="#fff" color="#black">
           <Box
             display="flex"
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
-            backgroundColor="#5678"
+            backgroundColor="#265c92"
             color="#ffff"
             mb={10}
             textAlign="center"
@@ -109,14 +109,16 @@ const SinglePost = ({ posts, match }: SinglePostProps) => {
               />
             </Box>
             <Box>
-              <Box fontSize="sm">{ReactHtmlParser(postObj.content.rendered)}</Box>
+              <Box fontSize="sm">
+                {ReactHtmlParser(postObj.content.rendered)}
+              </Box>
             </Box>
           </Box>
           <Box
             display="flex"
             justifyContent="center"
             alignItems="center"
-            backgroundColor="#5678"
+            backgroundColor="#265c92"
             color="#ffff"
             mt={10}
             textAlign="center"

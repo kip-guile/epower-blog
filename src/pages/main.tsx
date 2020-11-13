@@ -26,14 +26,14 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
       display={{ md: 'flex' }}
       flexDirection={{ md: 'column' }}
       minWidth={{ md: '100vw' }}
-      backgroundColor="#282c35"
-      color="#fff"
+      backgroundColor="#fff"
+      color="#black"
     >
       <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
-        backgroundColor="#5678"
+        backgroundColor="#265c92"
         color="#ffff"
         mb={10}
         textAlign="center"
@@ -45,10 +45,7 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
       {posts.length ? (
         <>
           <Posts posts={posts} />
-          <Pagination
-            paginate={paginate}
-            currentPage={currentPage}
-          />
+          <Pagination paginate={paginate} currentPage={currentPage} />
         </>
       ) : (
         <Box
@@ -65,7 +62,7 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        backgroundColor="#5678"
+        backgroundColor="#265c92"
         color="#ffff"
         mt={10}
         textAlign="center"
