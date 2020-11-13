@@ -72,7 +72,7 @@ const SinglePost = ({ fetchPosts, posts, match }: SinglePostProps) => {
             w="100%"
             h="20vh"
           >
-            <Text mb={5} fontSize="5xl">
+            <Text mb={5} fontSize={{md: '5xl', xs: 'xl'}}>
               {ReactHtmlParser(post.title.rendered)}
             </Text>
             <Text fontSize="md">
@@ -80,8 +80,8 @@ const SinglePost = ({ fetchPosts, posts, match }: SinglePostProps) => {
             </Text>
           </Box>
           <Box
-            pl={{ md: '10rem' }}
-            pr={{ md: '10rem' }}
+            pl={{ md: '10rem', xs: '2rem' }}
+            pr={{ md: '10rem', xs: '2rem' }}
             display="flex"
             flexDirection="column"
             justifyContent="center"
