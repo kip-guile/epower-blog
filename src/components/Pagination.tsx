@@ -19,12 +19,7 @@ const Pagination = ({
   }
 
   return (
-    <Box
-      display='flex'
-      width={{ md: '100%' }}
-      justifyContent='center'
-      mt={10}
-    >
+    <Box display="flex" width={{ md: '100%' }} justifyContent="center" mt={10}>
       {pageNumbers.map((number, i) => (
         <Box
           cursor="pointer"

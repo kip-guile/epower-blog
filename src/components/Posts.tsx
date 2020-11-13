@@ -11,11 +11,11 @@ const Posts = ({ posts }: PostProps) => {
   return (
     <Box
       display={{ md: 'flex', xs: 'flex' }}
-      flexDirection={{xs: 'column' }}
+      flexDirection={{ xs: 'column' }}
       flexWrap={{ md: 'wrap' }}
       maxWidth={{ md: '100%' }}
-      alignItems={{ xs: 'center'  }}
-      justifyContent={{ md: 'space-between', xs: 'center'  }}
+      alignItems={{ xs: 'center' }}
+      justifyContent={{ md: 'space-between', xs: 'center' }}
       pl={{ md: 10 }}
       pr={{ md: 10 }}
     >
