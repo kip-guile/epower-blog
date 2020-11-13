@@ -9,7 +9,7 @@ interface CardProps {
 }
 
 const Card = ({ post }: CardProps) => {
-  const link = `/posts/${post.slug}`
+  const link = `/posts/${post.id}/${post.slug}`
   return (
     <>
       <Box

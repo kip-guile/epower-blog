@@ -2,23 +2,14 @@ import React from 'react'
 import { Box, Button } from '@chakra-ui/core'
 
 interface PaginationProps {
-  postsPerPage: number
-  totalPosts: number
   paginate(number: number): any
   currentPage: number
 }
 
 const Pagination = ({
-  postsPerPage,
-  totalPosts,
   paginate,
   currentPage
 }: PaginationProps) => {
-  const pageNumbers = []
-
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i)
-  }
 
   return (
     <Box display="flex" width={{ md: '100%' }} justifyContent="center" mt={10}>

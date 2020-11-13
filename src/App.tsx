@@ -13,7 +13,7 @@ function App() {
       <CSSReset />
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route exact path="/posts/:post" component={SinglePost} />
+        <Route exact path="/posts/:id/:post" component={SinglePost} />
         <Route component={PageNotFound} />
       </Switch>
     </ThemeProvider>

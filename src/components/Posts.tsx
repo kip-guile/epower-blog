@@ -21,7 +21,7 @@ const Posts = ({ posts }: PostProps) => {
       pr={{ md: 10 }}
     >
       {posts.map((post, i) => (
-        <Card key={i} post={post} />
+        <Card key={i} post={post}/>
       ))}
     </Box>
   )

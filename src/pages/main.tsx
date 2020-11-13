@@ -14,7 +14,6 @@ interface MainComponentProps {
 
 function Main({ fetchPosts, posts }: MainComponentProps) {
   const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage] = useState(6)
 
   useEffect(() => {
     fetchPosts(currentPage)
@@ -47,8 +46,6 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
         <>
           <Posts posts={posts} />
           <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={posts.length}
             paginate={paginate}
             currentPage={currentPage}
           />
