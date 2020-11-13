@@ -116,8 +116,14 @@ const SinglePost = ({ fetchPosts, posts, match }: SinglePostProps) => {
           </Box>
         </Box>
       ) : (
-        <Box display='flex' alignItems='center' justifyContent='center' minWidth='100%' minHeight='70vh'>
-            <Spinner color='#ffff' size="xl" />
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          minWidth="100%"
+          minHeight="70vh"
+        >
+          <Spinner color="#ffff" size="xl" />
         </Box>
       )}
     </>

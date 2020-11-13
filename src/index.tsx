@@ -7,9 +7,6 @@ import App from './App'
 import store from './reducers/store'
 import reportWebVitals from './reportWebVitals'
 
-
-
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

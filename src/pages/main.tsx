@@ -14,7 +14,7 @@ interface MainComponentProps {
 
 function Main({ fetchPosts, posts }: MainComponentProps) {
   const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage, setPostsPerPage] = useState(6)
+  const [postsPerPage] = useState(6)
 
   useEffect(() => {
     fetchPosts()
@@ -57,8 +57,14 @@ function Main({ fetchPosts, posts }: MainComponentProps) {
           />
         </>
       ) : (
-        <Box display='flex' alignItems='center' justifyContent='center' minWidth='100%' minHeight='70vh'>
-            <Spinner size="xl" />
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          minWidth="100%"
+          minHeight="70vh"
+        >
+          <Spinner size="xl" />
         </Box>
       )}
       <Box
