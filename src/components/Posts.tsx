@@ -10,10 +10,12 @@ interface PostProps {
 const Posts = ({ posts }: PostProps) => {
   return (
     <Box
-      display={{ md: 'flex' }}
+      display={{ md: 'flex', xs: 'flex' }}
+      flexDirection={{xs: 'column' }}
       flexWrap={{ md: 'wrap' }}
       maxWidth={{ md: '100%' }}
-      justifyContent={{ md: 'space-between' }}
+      alignItems={{ xs: 'center'  }}
+      justifyContent={{ md: 'space-between', xs: 'center'  }}
       pl={{ md: 10 }}
       pr={{ md: 10 }}
     >
