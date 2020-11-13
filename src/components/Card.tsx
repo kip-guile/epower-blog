@@ -17,8 +17,8 @@ const Card = ({ post }: CardProps) => {
         flexDirection={{ md: 'column' }}
         justifyContent={{ md: 'center' }}
         alignItems={{ md: 'center' }}
-        maxWidth={{ md: '30%' }}
-        marginBottom={{ md: 5 }}
+        maxWidth={{ md: '30%', xs: '85%' }}
+        marginBottom={{ md: 5, xs: 5 }}
         marginTop={{ md: 5 }}
         textAlign="center"
         p={10}
